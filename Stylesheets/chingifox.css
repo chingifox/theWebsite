@@ -51,11 +51,11 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 /* Adjustments for mobile devices */
 @media (max-width: 768px) {
     .maintext-container {
-        margin: 0% 13vw; /* Reduce margins for smaller screens */
+        margin: 0% 15vw; /* Reduce margins for smaller screens */
     }
 
     .datepicker-container {
-        margin-right: 13vw; /* Reduce margin for datepicker */
+        margin-right: 15vw; /* Reduce margin for datepicker */
     }
 }
 
