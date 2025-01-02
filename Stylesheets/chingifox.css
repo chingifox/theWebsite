@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
+:root[data-theme='dark'] {
+    --themebg: #0e1011 !important;
+    --themefontcolor: #ffffff !important;
+}
+
+:root[data-theme='light'] {
+    --themebg: #ffffff !important;
+    --themefontcolor: #0e1011 !important;
+}
+
+h1 {
+    font-family: "Syne Mono", monospace;
+    font-style: italic;
+    font-size: 4.5rem;
+    font-weight: 300;
+    cursor: default;
+    margin: auto;
+    max-width: 100%;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: var(--themebg);
+    color: var(--themefontcolor);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+}
+
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    color-scheme: light dark;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+}
+
+.maintext-container {
+    overflow-y: auto;
+    transition: filter 0.2s ease;
+    margin: 0% 20vw;
+    padding-bottom: 4vh;
+}
+
+/* Adjustments for mobile devices */
+@media (max-width: 768px) {
+    .maintext-container {
+        margin: 0% 13vw; /* Reduce margins for smaller screens */
+    }
+
+    .datepicker-container {
+        margin-right: 13vw; /* Reduce margin for datepicker */
+    }
+}
+
+.scroll-container {
+    display: flex;
+    overflow-x: scroll;
+}
+
+.datepicker-container {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    font: inherit;
+    margin-right: 20vw;
+}
+
+#datepicker {
+    border: none;
+    text-align: right;
+    font: inherit;
+    padding: 0.1rem 1rem 0 0;
+    cursor: pointer;
+}
+
+#datepicker:focus {
+    outline: none;
+}
+
+.datelist {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    top: 100%;
+    right: 0;
+    z-index: 10;
+    background-color: var(--themebg);
+    font: inherit;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 1rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.datelist div {
+    padding: 0.1rem 0rem;
+}
+
+.datelist.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mode-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+    padding: 1rem 1rem;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    width: 2rem;
+    height: auto;
+}

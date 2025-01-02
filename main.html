@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="darkreader-lock">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chingifox</title>
+        <link rel="stylesheet" href="Stylesheets/chingifox.css">
+        <link rel="stylesheet" href="Stylesheets/gradient-blur.css">
+        <link rel="stylesheet" href="Stylesheets/datepicker.css">
+
+    </head>
+    <body>
+        <h1>Chingifox</h1>
+        <br id="blurstart">
+        <div class="datepicker-container">
+            <p id="datepicker"></p> 
+            <div class="datelist"></div>
+        </div> 
+        <div class="maintext-container">  
+            <p class="maintext-content"></p>
+        </div>
+
+        <img class="mode-toggle" src="Images/switchOff.png" />
+        <div class="gradient-blur-bottom">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="gradient-blur-top" id="topblur">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>    
+        <script src="JavaScript/top-blur-animation.js"></script>
+        <script src="JavaScript/datepicker.js"></script>
+        <script>
+            const lightSwitch = document.querySelector('.mode-toggle');
+            const htmlTheme = document.documentElement;
+            
+            let preferedMode = localStorage.getItem('mode');
+            if (!preferedMode){
+                localStorage.setItem('mode','dark');
+                preferedMode = 'dark';
+            } 
+
+            htmlTheme.setAttribute('data-theme', preferedMode);
+            lightSwitch.src = preferedMode === 'dark' ? 'Images/switchOff.png' : 'Images/switchOn.png';
+
+            lightSwitch.addEventListener('click', () => {
+                let lightSwitchMode = lightSwitch.src;
+                if( lightSwitchMode.includes("Images/switchOn.png")) {
+                    lightSwitch.src = "Images/switchOff.png";
+                    htmlTheme.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('mode', 'dark'); 
+                } else if (lightSwitchMode.includes("Images/switchOff.png")) {
+                    lightSwitch.src = "Images/switchOn.png";
+                    htmlTheme.setAttribute('data-theme', 'light'); 
+                    localStorage.setItem('mode', 'light');
+                }
+            });
+        </script>
+    </body>
+</html>
