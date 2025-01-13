@@ -11,13 +11,9 @@ fetch('./initialData.json')
   .then(data => {
     initialDate = data.initialDate;
     initialContent = data.initialContent;
-
-    console.log(initialDate); 
-    console.log(initialContent); 
   })
   .catch(error => console.error('Error loading JSON:', error));
 
-console.log(initialDate);
 
 // currentContentArray is declared as a window/gloabal element inside loadInitialContent()
 
